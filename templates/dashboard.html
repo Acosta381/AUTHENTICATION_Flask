@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}App{% endblock %}
+
+{% block content %}
+
+  <h1>Welcome, {{ current_user.username }}</h1>
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+  <div class="flash {{ category }}">{{ message }}</div>
+{% endfor %}
+
+    <a href="{{ url_for('auth.logout') }}">Press here to logout</a>
+
+{% endblock %}

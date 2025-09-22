@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+    <h1>Login</h1>
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+  <div class="flash {{ category }}">{{ message }}</div>
+{% endfor %}
+
+
+    <form method="POST" action="">
+        {{ forms.hidden_tag() }}
+        {{ forms.username }}
+        {{ forms.password }}
+        {{ forms.submit }}
+    </form>
+
+    <a href="{{ url_for('auth.register') }}">Dont't have an account? Sign Up</a>
+
+{% endblock %}
